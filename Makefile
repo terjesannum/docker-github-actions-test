@@ -1,6 +1,6 @@
 GEM_VERSION_NAIS_LOG_PARSER = 0.39.4
 
-.PHONY: docker clean check-vars
+.PHONY: all docker clean check-vars
 
 all: docker
 
