@@ -1,5 +1,7 @@
 FROM busybox:latest
 
-COPY nais-log-parser-0.39.4.gem /tmp/
+ARG GEM_VERSION_NAIS_LOG_PARSER
+
+COPY nais-log-parser-$GEM_VERSION_NAIS_LOG_PARSER.gem /tmp/
 
 CMD [ "echo", "hei" ]
