@@ -1,4 +1,4 @@
-GEM_VERSION_NAIS_LOG_PARSER    = 0.39.4
+GEM_VERSION_NAIS_LOG_PARSER = 0.39.4
 
 .PHONY: docker clean check-vars
 
@@ -17,5 +17,5 @@ docker: check-vars nais-log-parser-$(GEM_VERSION_NAIS_LOG_PARSER).gem
 	-t docker.pkg.github.com/${GITHUB_REPOSITORY}/${IMAGE_NAME}:$(TAG) .
 
 nais-log-parser-$(GEM_VERSION_NAIS_LOG_PARSER).gem:
-	gem fetch nais-log-parser --version "$(GEM_VERSION_NAIS_LOG_PARSER)" --source "https://x-access-token:$(GITHUB_TOKEN)@rubygems.pkg.github.com/nais" && \
+	gem fetch nais-log-parser --version "$(GEM_VERSION_NAIS_LOG_PARSER)" --source "https://x-access-token:$(GITHUB_TOKEN)@rubygems.pkg.github.com/nais"
 	test -r nais-log-parser-$(GEM_VERSION_NAIS_LOG_PARSER).gem
