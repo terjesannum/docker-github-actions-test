@@ -1,7 +1,5 @@
 GEM_VERSION_NAIS_LOG_PARSER    = 0.39.4
 
-IMAGE_NAME = foo
-
 .PHONY: docker clean check-tag
 
 all: docker
@@ -9,10 +7,11 @@ all: docker
 clean:
 	rm -f *.gem
 
-check-tag:
+check-vars:
+	test $(IMAGE_NAME)
 	test $(TAG)
 
-docker: check-tag nais-log-parser-$(GEM_VERSION_NAIS_LOG_PARSER).gem
+docker: check-vars nais-log-parser-$(GEM_VERSION_NAIS_LOG_PARSER).gem
 	docker build \
 	--build-arg GEM_VERSION_NAIS_LOG_PARSER=$(GEM_VERSION_NAIS_LOG_PARSER) \
 	-t docker.pkg.github.com/${GITHUB_REPOSITORY}/${IMAGE_NAME}:$(TAG) .
